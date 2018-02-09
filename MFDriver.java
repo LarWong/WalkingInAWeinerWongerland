@@ -22,7 +22,7 @@ public class MFDriver{
 	int size = 1000;
 	int ctr = 0;
 	int total = 0;
-	System.out.println("Size (n) , Time(Milliseconds)");
+	System.out.println("Size (n) , Time(Nanoseconds)");
 	
 	//warming up
 	int n = 1;
