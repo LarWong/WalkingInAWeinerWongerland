@@ -6,7 +6,7 @@
 	<li>2018-02-09</li>
 </ul>
 <p align="center">
-Determining The Run Time of Matrix Search Algorithm
+<b>Determining The Run Time of Matrix Search Algorithm</b>
 </p>
 
 # Hypothesis
