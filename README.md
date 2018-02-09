@@ -4,7 +4,7 @@
  L00 -- But What Does the Data Say?
  2018-02-09
 <p align="center">
- Determining The Run Time of Matrix Search Algorithm
+Determining The Run Time of Matrix Search Algorithm
 <p>
 
 
