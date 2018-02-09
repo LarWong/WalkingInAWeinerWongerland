@@ -4,9 +4,8 @@
 //2018-02-02
 
 /*
-  First, we check the four corner values. We check if our target value CAN exist
+  First, we check the three corner values. We check if our target value CAN exist
   by checking if our target value is greater than or equal to the value at the top left and if our target is less than or equal to the value at the bottom. If our target does not lie within that range, we can return -1 without having to iterate through the array to find a value which cannot exist within it.
-  We also check the top right value to see if our target matches that. This eliminates the longest "worst case."
 
   Then, if we have found that the target is in the array, we begin our
   algorithm at the the lower left. If the value at this location is
@@ -18,17 +17,7 @@
 */
 public class MatrixFinder
 {
-    public static void populate(int[][] matrix){
-	int i = 0;
-	for (int r = 0; r < matrix.length; r++){
-	    for (int c = 0; c < matrix.length; c++){
-		matrix[r][c] = i;
-		i++;
-	    }
-	}
-
-
-    }
+ 
     
     public static String Finder(int[][] array, int target) {
 	
@@ -40,15 +29,7 @@ public class MatrixFinder
 	//checks if the value is within the boundaries of the array
 	if(array[nRows-1][nCols-1] < target || array[0][0] > target) {
 	    return "(-1,-1)";
-	}
-    
-	//checks if top right (worst case) is equal to the target
-	//else if(array[0][nCols -1] == target) {
-	// retStr += "0," + (nCols -1) + ")";
-	//return retStr;
-	//	}
-    
-	else {
+	}else {
 	    while (curRow >= 0 && curCol < nCols) {
 		/*Print statements for debugging --
 		  System.out.println(nRows);
@@ -78,28 +59,6 @@ public class MatrixFinder
     
     public static void main(String[] args) {
 
-	int[][] test;
-	int size = 1000;
-	int ctr = 0;
-	int total = 0;
 	
-		while (size <= 10000){
-	    
-	    test = new int[size][size];
-	    populate(test);
-	    
-	    while (ctr < 10000){
-	    long startTime = System.nanoTime();
-	    Finder(test, size-1);
-	    long endTime = System.nanoTime() - startTime;
-	    total += endTime;
-	    ctr ++;
-	    }
-	    
-	    System.out.println(size + " , " + total/10000.0);
-	    total = 0;
-	    ctr = 0;
-	    size += 100;
-	    	}
 
     }}

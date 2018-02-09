@@ -1,0 +1,44 @@
+
+public class MFDriver{
+
+    public static void populate(int[][] matrix){
+	int i = 0;
+	for (int r = 0; r < matrix.length; r++){
+	    for (int c = 0; c < matrix.length; c++){
+		matrix[r][c] = i;
+		i++;
+	    }
+	}
+
+
+    } 
+    public static void main(String[] args){
+	MatrixFinder code = new MatrixFinder();
+	int[][] test;
+	int size = 1000;
+	int ctr = 0;
+	int total = 0;
+	System.out.println("Size (n) , Time(Milliseconds)");  
+	while (size <= 10000){
+	    
+	    test = new int[size][size];
+	    populate(test);
+	    
+	    while (ctr < 10000){
+		long startTime = System.nanoTime();
+		code.Finder(test, size-1);
+		long endTime = System.nanoTime() - startTime;
+		total += endTime;
+		ctr ++;
+	    }
+	    total /= 10000.0;// avg data
+	    System.out.println(size + " , " + total);
+	    total = 0;
+	    ctr = 0;
+	    size += 100;
+	}
+
+
+    }
+
+}
