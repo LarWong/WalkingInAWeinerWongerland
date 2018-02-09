@@ -11,5 +11,11 @@ Determining The Run Time of Matrix Search Algorithm
 
 # Hypothesis
 
+# Background
 
+# Experiment Methodology
+
+# Results
+
+# Conclusions
 
