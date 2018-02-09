@@ -40,6 +40,8 @@ public class MFDriver{
 
 	}
 	
+	//calculate average runtime of different sizes
+	
 	while (size <= 10000){
 	    
 	    test = new int[size][size];
@@ -58,6 +60,30 @@ public class MFDriver{
 	    ctr = 0;
 	    size += 100;
 	}
+
+	//calculate all runtimes of 1,000x1,000 and 10,000x10,000
+	size = 1000;
+	test = new int[size][size];
+	System.out.println("Trial for 1000, Nanoseconds");
+	while (ctr < 10000){
+	    long startTime = System.nanoTime();
+	    code.Finder(test, size-1);
+	    long endTime = System.nanoTime() - startTime;
+	    ctr ++;
+	    System.out.println(ctr + " , " + endTime);
+        }
+	
+	ctr = 0;
+	size = 10000;
+	test = new int[size][size];
+	System.out.println("Trial for 10000 , Nanoseconds");
+	while (ctr < 10000){
+	    long startTime = System.nanoTime();
+	    code.Finder(test, size-1);
+	    long endTime = System.nanoTime() - startTime;
+	    ctr ++;
+	    System.out.println(ctr + " , " + endTime);
+        }
 
 
     }
