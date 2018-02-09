@@ -10,12 +10,23 @@
 </p>
 
 # Hypothesis
+<p> Our hypothesis ...</P>
 
 # Background
+<p> Information/research </p>
 
 # Experiment Methodology
+<ol>
+	<li>  <p> Step 1 </p> </li>
+	<li>  <p> Step 2 </p> </li>
+	<li>  <p> Step 3 </p> </li>
+	<li>  <p> Step 4 </p> </li>
+</ol>
 
 # Results
+<h2 align="center"> Graph </h2>
+<h3> Observations </h3>
+<p> This graph appears ... </p>
 
 # Conclusions
 <ul>
