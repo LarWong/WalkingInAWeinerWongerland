@@ -1,7 +1,7 @@
 //Team Walking in a Weiner Wongerland (Larry Wong, Joshua Weiner, Eric Wong)
-//APCS pd8
-//HW03 -- I Am Still Searching
-//2018-02-02
+//APCS2 pd8
+//L00 -- But What Does the Data Say?
+//2018-02-09
 
 /*
   First, we check the three corner values. We check if our target value CAN exist
