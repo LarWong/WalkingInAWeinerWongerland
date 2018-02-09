@@ -27,6 +27,7 @@ a target value in O(n) time. Here is a visual representation </p>
 # Results
 <h2 align="center"> Graph </h2>
     <img src="https://github.com/LarWong/WalkingInAWeinerWongerland/blob/master/graph.png" >
+    <p> Link to our Google Spreadsheet: https://docs.google.com/spreadsheets/d/17r3qiL1IN9RqU3vyojcQspGMyw6yFlT2oPIkSiuQFQY/edit?usp=sharing</p>
 <h3> Observations </h3>
 <p> This graph appears to have a linear trend. this would agree with our hypothesis, which was that our experiment ran in O(n) linear time. </p>
 <p> The graph shows the average runtime (10,000 trials) of each size (1000-10000;increments of 100) to ensure the most accurate and precise results. </p>
