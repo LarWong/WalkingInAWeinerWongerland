@@ -25,7 +25,7 @@
 
 # Results
 <h2 align="center"> Graph </h2>
-![alt text](https://github.com/LarWong/WalkingInAWeinerWongerland/blob/master/chart.png)
+    <img src="https://github.com/LarWong/WalkingInAWeinerWongerland/blob/master/chart.png" style="width:500px;height:600px;">
 <h3> Observations </h3>
 <p> This graph appears ... </p>
 
