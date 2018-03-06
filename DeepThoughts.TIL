@@ -4,6 +4,13 @@ APCS2 - pd08
 
 2018 - 03 - 05
 */
+Q1: From any starting position, can an open tour always be found? Explain.
+
+Q2: Same, but for closed tour.
+
+Q3: How do you explain the increase in execution time as n increases?
+
+Q4: Thoughts on optimization?
 
 
 Algorithm:
