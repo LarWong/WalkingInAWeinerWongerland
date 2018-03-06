@@ -4,6 +4,15 @@ APCS2 - pd08
 HW14 - Hello knights, welcome to the maze
 2018 - 03 - 05
 */
+Mean execution times for boards sized n*n 
+(from top left)
+n=5 .130s over 10 executions
+n=6 .160s over 10 executions
+n=7 .360s over 10 executions
+n=8 .410s over 10 executions
+
+*note: this was tested with other windows open. etc, which may have impacted the run time
+
 Q1: From any starting position, can an open tour always be found? Explain.
 No, there are some positions where an open tour cannot be found. In class there was an example of this, where we started in the
 upper left corner and there were no possible tours.
