@@ -5,8 +5,12 @@ HW14
 2018 - 03 - 05
 */
 Q1: From any starting position, can an open tour always be found? Explain.
+No, there are some positions where an open tour cannot be found. In class there was an example of this, where we started in the
+upper left corner and there were no possible tours.
 
 Q2: Same, but for closed tour.
+not possible for odd numbered boards, because a knight will always chang color when it moves. After an odd number of moves,
+the knight will always be at a different color and thus cannot be closed.
 
 Q3: How do you explain the increase in execution time as n increases?
 
