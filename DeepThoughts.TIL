@@ -1,7 +1,7 @@
 /*
 Larry Wong, Eric Wong, Joshua Weiner - Walking in a Weiner Wongerland
 APCS2 - pd08
-HW14
+HW14 - Hello knights, welcome to the maze
 2018 - 03 - 05
 */
 Q1: From any starting position, can an open tour always be found? Explain.
@@ -9,13 +9,15 @@ No, there are some positions where an open tour cannot be found. In class there 
 upper left corner and there were no possible tours.
 
 Q2: Same, but for closed tour.
-not possible for odd numbered boards, because a knight will always chang color when it moves. After an odd number of moves,
+not possible for odd numbered boards, because a knight will always change color when it moves. After an odd number of moves,
 the knight will always be at a different color and thus cannot be closed.
 
 Q3: How do you explain the increase in execution time as n increases?
+As n increases, the amount of checks for positions for the knights tour increases by about 2n, with each new space accompanied with 8 different checks at maximum. Since each tour requires each space to be visited, every time n is increased another row and column have to be checked as well.
 
 Q4: Thoughts on optimization?
-
+If the board is even (as in the number of rows and columns are both even numbers), all possible solutions can be checked just by checking one quarter of the board. This is because each solution for each quarter can be flipped or rotated to match onto any other solution.
+Furthermore, we can try to implement Warnsdorf's rule, and place each knight in the spaces that will result in the least number of future moves. This works by checking the total number of steps that the algorithm will have to go through for each possible placement of the knight. When the move with the least number of future moves is found, the knight will be placed in that position.
 
 Algorithm:
   - Begin at the "start position"
