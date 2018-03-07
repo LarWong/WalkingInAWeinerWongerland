@@ -5,8 +5,6 @@ HW15 - Thinkers of the Corn
 2018 - 03 - 06
 */
 
-/*
-  */
 
 /***
 * SKEELTON for class
@@ -20,11 +18,11 @@ HW15 - Thinkers of the Corn
 *
 * ALGORITHM for finding exit from starting position:
 *  Algorithm:
-  - Begin at the "start position"
-  - For each path space, check all four spaces immediately adjacent to the current space.
-    - If one of these surrounding spaces is a "#", update the position to that space
-    - Otherwise, if there are no # around, backtrack to the last spot with multiple options to move, similar to the knight's tour.
-  - Keep moving until the final position is reached, denoted with a "$"
+* - Begin at the "start position"
+* - For each path space, check all four spaces immediately adjacent to the current space.
+*   - If one of these surrounding spaces is a "#", update the position to that space
+*   - Otherwise, if there are no # around, backtrack to the last spot with multiple options to move, similar to the knight's tour.
+* - Keep moving until the final position is reached, denoted with a "$"
 ***/
 
 //enable file I/O
