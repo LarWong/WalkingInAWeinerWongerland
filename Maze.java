@@ -1,16 +1,23 @@
+/*
+Larry Wong, Joshua Weiner, Eric Wong,  - Walking in a Weiner Wongerland
+APCS2 - pd08
+HW15 - Thinkers of the Corn
+2018 - 03 - 06
+*/
+
 /***
- * SKEELTON for class
- * MazeSolver
- * Implements a blind depth-first exit-finding algorithm.
- * Displays probing in terminal.
- *
- * USAGE:
- * $ java Maze [mazefile]
- * (mazefile is ASCII representation of maze, using symbols below)
- *
- * ALGORITHM for finding exit from starting position:
- *  <INSERT YOUR SUMMARY OF ALGO HERE>
- ***/
+* SKEELTON for class
+* MazeSolver
+* Implements a blind depth-first exit-finding algorithm.
+* Displays probing in terminal.
+*
+* USAGE:
+* $ java Maze [mazefile]
+* (mazefile is ASCII representation of maze, using symbols below)
+*
+* ALGORITHM for finding exit from starting position:
+*  <INSERT YOUR SUMMARY OF ALGO HERE>
+***/
 
 //enable file I/O
 import java.io.*;
@@ -41,30 +48,33 @@ class MazeSolver
 
     //transcribe maze from file into memory
     try {
-	    Scanner sc = new Scanner( new File(inputFile) );
+      Scanner sc = new Scanner( new File(inputFile) );
 
-	    System.out.println( "reading in file..." );
+      System.out.println( "reading in file..." );
 
-	    int row = 0;
+      int row = 0;
 
-	    while( sc.hasNext() ) {
+      while( sc.hasNext() ) {
 
         String line = sc.nextLine();
+        //System.out.println(line.length());
 
         if ( w < line.length() )
-          w = line.length();
+        w = line.length();
 
         for( int i=0; i<line.length(); i++ )
-          maze[i][row] = line.charAt( i );
+        maze[i][row] = line.charAt( i );
 
         h++;
         row++;
-	    }
+      }
 
-	    for( int i=0; i<w; i++ )
-        maze[i][row] = WALL;
-	    h++;
-	    row++;
+      for( int i=0; i<w; i++ )
+      maze[i][row] = WALL;
+      h++;
+      row++;
+
+      System.out.println(w);
 
     } catch( Exception e ) { System.out.println( "Error reading file" ); }
 
@@ -82,9 +92,9 @@ class MazeSolver
 
     int i, j;
     for( i=0; i<h; i++ ) {
-	    for( j=0; j<w; j++ )
-        retStr = retStr + maze[j][i];
-	    retStr = retStr + "\n";
+      for( j=0; j<w; j++ )
+      retStr = retStr + maze[j][i];
+      retStr = retStr + "\n";
     }
     return retStr;
   }
@@ -94,51 +104,59 @@ class MazeSolver
   private void delay( int n )
   {
     try {
-	    Thread.sleep(n);
+      Thread.sleep(n);
     } catch( InterruptedException e ) {
-	    System.exit(0);
+      System.exit(0);
     }
   }
 
 
   /*********************************************
-   * void solve(int x,int y) -- recursively finds maze exit (depth-first)
-   * @param x starting x-coord, measured from left
-   * @param y starting y-coord, measured from top
-   *********************************************/
+  * void solve(int x,int y) -- recursively finds maze exit (depth-first)
+  * @param x starting x-coord, measured from left
+  * @param y starting y-coord, measured from top
+  *********************************************/
   public void solve( int x, int y ) {
 
-    delay(100); //slow it down enough to be followable
+    delay(1); //slow it down enough to be followable
+    System.out.println(this);
 
-    if (solved) System.exit(0);
+    //DEBUGGING
+    //System.out.println(maze.length);
+    //System.out.println(h);
+    //System.out.println(w);
+
 
     //primary base case
-    if (maze[x][y] == "$".charAt(0)) {
-      solved = true;
-      System.out.println( this );
-	    return;
-    }
-
-    else if (!onPath(x,y)) return;
-    //other base case(s)...
-    else if (x < 0 || y < 0) {
-	    return;
-    }
-    else if (x >= w || y >= h)
+    if ( x < 0 || x >= w || y < 0  || y >= h ) {
       return;
-
+    }
+    //other base case(s)...
+    else if ( maze[x][y] == '$' ) {
+      solved = true;
+      System.exit(0);
+    }
+    else if ( maze[x][y] == ' ' ) {
+      return;
+    }
+    else if ( maze[x][y] == '.' ) {
+      return;
+    }
     //recursive reduction
     else {
-      maze[x][y] = "@".charAt(0);
-      System.out.println(this);
-	    solve(x, y + 1);
-      solve(x, y - 1);
-      solve(x + 1, y);
-      solve(x - 1, y);
+      //marks where it has been
+      maze[x][y] = '.';
 
-      maze[x][y] = "#".charAt(0);
+      //tris to go to the four possible directions
+      solve(x+1,y);//up
+      solve(x-1,y);//down
+      solve(x,y+1);//right
+      solve(x,y-1);//left
 
+      //backtracks
+      maze[x][y] = '#';
     }
+
   }
 
   //accessor method to help with randomized drop-in location
@@ -152,35 +170,36 @@ public class Maze
   public static void main( String[] args )
   {
     try {
-	    String mazeInputFile = args[0];
+      String mazeInputFile = args[0];
 
-	    MazeSolver ms = new MazeSolver( mazeInputFile );
-	    //clear screen
-	    System.out.println( "[2J" );
+      MazeSolver ms = new MazeSolver( mazeInputFile );
+      //clear screen
+      System.out.println( "[2J" );
 
-	    //display maze
-	    System.out.println( ms );
+      //display maze
+      System.out.println( ms );
 
-	    //drop hero into the maze (coords must be on path)
-	    //comment next line out when ready to randomize startpos
-	    ms.solve( 0, 0 );
+      //drop hero into the maze (coords must be on path)
+      //comment next line out when ready to randomize startpos
+      //ms.solve( 0, 0 );
 
-	    //drop our hero into maze at random location on path
-	    //the Tim Diep way:
-      /*
-	    Random r = new Random();
-	    int startX = r.nextInt( 80 );
-	    int startY = r.nextInt( 25 );
-	    while ( !ms.onPath(startX,startY) ) {
-      startX = r.nextInt( 80 );
-      startY = r.nextInt( 25 );
-	    }
-      */
 
-	    ms.solve( startX, startY );
+      //drop our hero into maze at random location on path
+      //the Tim Diep way:
+      Random r = new Random();
+      int startX = r.nextInt( 80 );
+      int startY = r.nextInt( 25 );
+      while ( !ms.onPath(startX,startY) ) {
+        startX = r.nextInt( 80 );
+        startY = r.nextInt( 25 );
+      }
+
+      ms.solve( startX, startY );
+      /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
     } catch( Exception e ) {
-	    System.out.println( "Error reading input file." );
-	    System.out.println( "Usage: java Maze <filename>" );
+      System.out.println( "Error reading input file." );
+      System.out.println( "Usage: java Maze <filename>" );
     }
   }
 
