@@ -6,12 +6,6 @@ HW15 - Thinkers of the Corn
 */
 
 /*
-Algorithm:
-  - Begin at the "start position"
-  - For each path space, check all four spaces immediately adjacent to the current space.
-    - If one of these surrounding spaces is a "#", update the position to that space
-    - Otherwise, if there are no # around, backtrack to the last spot with multiple options to move, similar to the knight's tour.
-  - Keep moving until the final position is reached, denoted with a "$"
   */
 
 /***
@@ -25,7 +19,12 @@ Algorithm:
 * (mazefile is ASCII representation of maze, using symbols below)
 *
 * ALGORITHM for finding exit from starting position:
-*  <INSERT YOUR SUMMARY OF ALGO HERE>
+*  Algorithm:
+  - Begin at the "start position"
+  - For each path space, check all four spaces immediately adjacent to the current space.
+    - If one of these surrounding spaces is a "#", update the position to that space
+    - Otherwise, if there are no # around, backtrack to the last spot with multiple options to move, similar to the knight's tour.
+  - Keep moving until the final position is reached, denoted with a "$"
 ***/
 
 //enable file I/O
