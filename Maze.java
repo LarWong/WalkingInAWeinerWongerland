@@ -5,6 +5,15 @@ HW15 - Thinkers of the Corn
 2018 - 03 - 06
 */
 
+/*
+Algorithm:
+  - Begin at the "start position"
+  - For each path space, check all four spaces immediately adjacent to the current space.
+    - If one of these surrounding spaces is a "#", update the position to that space
+    - Otherwise, if there are no # around, backtrack to the last spot with multiple options to move, similar to the knight's tour.
+  - Keep moving until the final position is reached, denoted with a "$"
+  */
+
 /***
 * SKEELTON for class
 * MazeSolver
@@ -118,7 +127,7 @@ class MazeSolver
   *********************************************/
   public void solve( int x, int y ) {
 
-    delay(1); //slow it down enough to be followable
+    delay(50); //slow it down enough to be followable
     System.out.println(this);
 
     //DEBUGGING
@@ -153,8 +162,8 @@ class MazeSolver
       solve(x,y+1);//right
       solve(x,y-1);//left
 
-      //backtracks
-      maze[x][y] = '#';
+      //backtracks: special effects
+      //maze[x][y] = '#';
     }
 
   }
